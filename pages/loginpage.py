@@ -20,9 +20,9 @@ class LoginPage(BasePage):
     def get_loginPage_title(self, title):
         return self.get_title(title)
 
-    def do_login(self, username, password):
-        self.enter_value(self.USERNAME, username)
-        self.enter_value(self.PASSWORD, password)
+    def do_login(self):
+        self.enter_value(self.USERNAME, TestData.USERNAME)
+        self.enter_value(self.PASSWORD, TestData.PASSWORD)
         self.do_click(self.LOGIN_BUTTON)
         return HomePage(self.driver)
 

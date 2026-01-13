@@ -12,8 +12,8 @@ class TestLoginPage(BaseTestPage):
 
     def test_e2e(self):
         loginpage = LoginPage(self.driver)
-        homePage = loginpage.do_login(TestData.USERNAME, TestData.PASSWORD)
+        homePage = loginpage.do_login()
         checkOut = homePage.add_product_to_cart()
-        checkOut.proceed_checkout(TestData.FIRST_NAME, TestData.LAST_NAME, TestData.ZIP_CODE)
+        checkOut.proceed_checkout()
 
 

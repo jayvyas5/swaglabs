@@ -33,19 +33,19 @@ class CheckOutPage(BasePage):
     def product_checkout(self):
         self.do_click(self.PRODUCT_CHECKOUT)
 
-    def fill_details(self,firstname , lastname, zipcode):
-        self.enter_value(self.FIRST_NAME, firstname)
-        self.enter_value(self.LAST_NAME, lastname)
-        self.enter_value(self.ZIP_CODE, zipcode)
+    def fill_details(self):
+        self.enter_value(self.FIRST_NAME, TestData.FIRST_NAME)
+        self.enter_value(self.LAST_NAME, TestData.LAST_NAME)
+        self.enter_value(self.ZIP_CODE, TestData.ZIP_CODE)
         self.do_click(self.CONTINUE_BUTTON)
         self.do_click(self.FINISHED_BUTTON)
         ACTUAL_MASSAGE =self.get_element_text(self.MASSAGE)
         assert TestData.EXPECTED_MASSAGE == ACTUAL_MASSAGE
 
-    def proceed_checkout(self, firstname, lastname, zipcode):
+    def proceed_checkout(self):
         self.verify_choosen_product()
         self.product_checkout()
-        self.fill_details(firstname, lastname, zipcode)
+        self.fill_details()
 
 
 
